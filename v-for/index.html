@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>v-for</title>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<li v-for="menu in menus">{{ menu }}</li>
+			</ul>
+
+			<!-- for(let i = 0; i < menus.length; i++) -->
+			<ul>
+				<li v-for="(menu, i) in menus" :key="index">{{ i }}.{{ menu }}</li>
+			</ul>
+
+			<template v-for="(menu, i) in menus">
+				<h3>{{ i }}</h3>
+				<p>{{ menu }}</p>
+			</template>
+
+			<ul v-for="student in students">
+				<li>{{ student.age }}</li>
+
+				<div v-for="(value, key, index) in student">
+					{{index}}. {{key}}: {{value}}
+				</div>
+			</ul>
+
+			<ul v-for="n in 10">
+				<li>{{n}}</li>
+			</ul>
+
+			<button @click="menus.push('test')">Add to menus</button>
+		</div>
+
+		<script src="index.js"></script>
+	</body>
+</html>
